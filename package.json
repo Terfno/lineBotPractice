@@ -1,0 +1,19 @@
+{
+  "name": "lineterfnobot1",
+  "version": "1.0.0",
+  "description": "for practice of line bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terfno/lineBotPractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terfno/lineBotPractice/issues"
+  },
+  "homepage": "https://github.com/Terfno/lineBotPractice#readme"
+}
