@@ -38,5 +38,5 @@ app.post('/webhook', (req,res,next) => {
 
 app.listen(PORT, () => {
 	console.log('listening on ${PORT}')
-}
+})
 
