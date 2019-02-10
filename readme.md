@@ -1,4 +1,4 @@
-# bot_practice
+# オウム返しline bot
 botの練習
 
 ## .env
