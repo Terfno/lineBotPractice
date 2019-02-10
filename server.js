@@ -27,10 +27,17 @@ let handleEvent = (event) => {
         return Promise.resolve(null)
     }
 
-    return client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: event.message.text
-    })
+    if (event.message.text == 'hello') {
+        return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: 'world'
+        })
+    } else {
+        return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: event.message.text
+        })
+    }
 }
 
 app.listen(PORT, () => {
