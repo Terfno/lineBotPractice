@@ -35,7 +35,7 @@ let handleEvent = (event) => {
     } else if (event.message.text == '敗北者') {
         return client.replyMessage(event.replyToken, {
             type: 'text',
-            text: 'ハァ…ハァ…敗北者……?\n取り消せよ…!!  ハァ…  今の言葉……!!!'
+            text: 'ハァ…ハァ…敗北者……?\n取り消せよ…!!\nハァ…\n今の言葉……!!!'
         })
     } else {
         return client.replyMessage(event.replyToken, {
