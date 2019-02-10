@@ -7,8 +7,8 @@ const line = require('@line/bot-sdk')
 const PORT = process.env.PORT || 3000
 
 const config = {
-    channelSecret: '',
-    channelAccessToken: ''
+    channelSecret: process.env.channelSecret,
+    channelAccessToken: process.env.channelAccessToken
 }
 
 const app = express()
