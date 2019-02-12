@@ -42,7 +42,12 @@ let handleEvent = (event) => {
             type: 'text',
             text: 'ちょい待ち'
         },pushWeather(event.source.userId))
-    } else {
+    } else if (event.message.text == '💩') {
+        return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: 'は？'
+        })
+    }else {
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: event.message.text
