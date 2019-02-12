@@ -47,19 +47,17 @@ let handleEvent = (event) => {
             type: 'text',
             text: 'は？'
         })
+    } else if (decisionEmoji(event.message.text)) {
+        return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: 'LINEは:thinking_face:とかやっても🤔ってならないよね…'
+        })
     }else {
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: event.message.text
         })
     }
-}
-
-let replyLater = async (userId) => {
-    return client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: 'ちょい待ち'
-    })
 }
 
 let pushWeather = async (userId)=> {
@@ -70,6 +68,15 @@ let pushWeather = async (userId)=> {
         type: 'text',
         text: item.description.text
     })
+}
+
+let decisionEmoji = (text) => {
+    text = text.split('')
+    if (text[0] == ':' && text[(text.length) - 1] == ':') {
+        return true
+    } else {
+        return false
+    }
 }
 
 app.listen(PORT, () => {
