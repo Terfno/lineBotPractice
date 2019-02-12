@@ -4,6 +4,8 @@ require('dotenv').config()
 
 const express = require('express')
 const line = require('@line/bot-sdk')
+const axios = require('axios')
+
 const PORT = process.env.PORT || 3000
 
 const config = {
@@ -25,24 +27,41 @@ const client = new line.Client(config)
 let handleEvent = (event) => {
     if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null)
-    }
-
-    if (event.message.text == 'hello') {
+    }else if (event.message.text == 'hello') {
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'world'
         })
-    } else if (event.message.text == '敗北者') {
+    }else if (event.message.text == '敗北者') {
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'ハァ…ハァ…敗北者……?\n取り消せよ…!!\nハァ…\n今の言葉……!!!'
         })
+    }else if (event.message.text == '天気') {
+        return replyLater(event.source.userId, pushWeather(event.source.userId))
     } else {
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: event.message.text
         })
     }
+}
+
+let replyLater = async (userId) => {
+    return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'ちょい待ち'
+    })
+}
+
+let pushWeather = async (userId)=> {
+    var res = await axios.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=330020')
+    var item = res.data
+
+    await client.pushMessage(userId, {
+        type: 'text',
+        text: item.description.text
+    })
 }
 
 app.listen(PORT, () => {
