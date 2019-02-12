@@ -37,8 +37,8 @@ let handleEvent = (event) => {
             type: 'text',
             text: 'ハァ…ハァ…敗北者……?\n取り消せよ…!!\nハァ…\n今の言葉……!!!'
         })
-    }else if (event.message.text == '天気') {
-        return replyLater(event.source.userId, pushWeather(event.source.userId))
+    } else if (event.message.text == '天気') {
+        return pushWeather(event.source.userId, replyLater(event.source.userId))
     } else {
         return client.replyMessage(event.replyToken, {
             type: 'text',
