@@ -25,6 +25,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 const client = new line.Client(config)
 
 let handleEvent = (event) => {
+    console.log(event.source.userId)
     if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null)
     }else if (event.message.text == 'hello') {
@@ -82,4 +83,3 @@ let decisionEmoji = (text) => {
 app.listen(PORT, () => {
     console.log('server at '+PORT)
 })
-
