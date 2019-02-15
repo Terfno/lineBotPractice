@@ -28,27 +28,32 @@ let handleEvent = (event) => {
     console.log(event.source.userId)
     if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null)
-    }else if (event.message.text == 'hello') {
+    } else if (event.message.text == 'hello') {
+        console.log(event.message.text)
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'world'
         })
-    }else if (event.message.text == '敗北者') {
+    } else if (event.message.text == '敗北者') {
+        console.log(event.message.text)
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'ハァ…ハァ…敗北者……?\n取り消せよ…!!\nハァ…\n今の言葉……!!!'
         })
     } else if (event.message.text == '天気') {
+        console.log(event.message.text)
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'ちょい待ち'
         },pushWeather(event.source.userId))
     } else if (event.message.text == '💩') {
+        console.log(event.message.text)
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'は？'
         })
     } else if (decisionEmoji(event.message.text)) {
+        console.log(event.message.text)
         return client.replyMessage(event.replyToken, {
             type: 'text',
             text: 'LINEは:thinking_face:とかやっても🤔ってならないよね…'
